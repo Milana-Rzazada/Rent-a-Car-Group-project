@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Car Rental UI</title>
+
+</head>
+
+<body>
+
+    <div class="container1">
+        <div class="filter-panel">
+            <h3>Filters</h3>
+            <div class="filter-section">
+                <div class="filter-category">
+                    <h4>TYPE</h4>
+                    <label><input type="checkbox" value="Sport" checked> Sport (10)</label><br>
+                    <label><input type="checkbox" value="SUV" checked> SUV (12)</label><br>
+                    <label><input type="checkbox" value="MPV"> MPV (16)</label><br>
+                    <label><input type="checkbox" value="Sedan"> Sedan (20)</label><br>
+                    <label><input type="checkbox" value="Coupe"> Coupe (14)</label><br>
+                    <label><input type="checkbox" value="Hatchback"> Hatchback (14)</label>
+                </div>
+                <div class="filter-category">
+                    <h4>CAPACITY</h4>
+                    <label><input type="checkbox" value="2"> 2 Person (10)</label><br>
+                    <label><input type="checkbox" value="4"> 4 Person (14)</label><br>
+                    <label><input type="checkbox" value="6"> 6 Person (12)</label><br>
+                    <label><input type="checkbox" value="8+" checked> 8 or More (16)</label>
+                </div>
+                <div class="filter-category">
+                    <h4>PRICE</h4>
+                    <input type="range" id="priceRange" min="0" max="100" value="100" step="1">
+                    <p>Max. <span id="priceValue">$100.00</span></p>
+                </div>
+
+
+</div>
+                <div class="cars-section" id="carList">
+                    <!-- JavaScript will inject cars here -->
+                </div>
+            </div>
+       
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

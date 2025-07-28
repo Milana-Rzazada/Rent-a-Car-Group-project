@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet">
+    <title>Morent</title>
+</head>
+
+<body>
+    <header>
+       <div class="navbar">
+    <div class="logo">MORENT</div>
+    <div class="search-box">
+      <button onclick="search()">
+        🔍
+      </button>
+      <input type="text" id="searchInput" placeholder="Search something here">
+      <button>
+        ⚙️
+      </button>
+    </div>
+    <div class="icons">
+      <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="wishlist" onclick="goToWishlist()">
+      <div class="notification-dot">
+        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827392.png" alt="notifications">
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="settings" onclick="toggleLogin()">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/men/75.jpg" onclick="toggleLogin()">
+    </div>
+  </div>
+    <div class="burger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  <div id="loginModal" class="modal">
+    <h3>Login / Register</h3>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button onclick="closeLogin()">Login</button>
+  </div>
+    </header>
+    <main>
+        <section class="big_img">
+            <div class="container">
+                <div class="cars">
+                    <div class="platform">
+                        <h1>The Best Platform for Car Rental</h1>
+                        <p>Ease of doing a car rental safely and reliably. Of course at a low price.</p>
+                        <button type="button">Rental Car</button>
+
+                    </div>
+                    <div class="easy">
+                        <h1>Easy way to rent a car at a low price</h1>
+                        <p>Providing cheap car rental services and safe and comfortable facilities.</p>
+                        <button type="button">Rental Car</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="up">
+            <div class="container">
+                <div class="select">
+                    <div class="pick_up">
+                        <div class="first">
+                            <form action="/action_page.php">
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                                <label for="vehicle1"> Pick - Up </label><br>
+                            </form>
+                        </div>
+                        <div class="second">
+                            <div class="locations">
+                                <p>locations</p>
+                                <label for="cars">Select your city</label>
+
+                                <select name="cars" id="car">
+                                    <option value=""></option>
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="mercedes">Mercedes</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                            </div>
+                            <div class="date">
+                                <p>Date</p>
+                                <label for="cars">Select your city</label>
+
+                                <select name="cars" id="car">
+                                    <option value=""></option>
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="mercedes">Mercedes</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                            </div>
+                            <div class="time">
+                                <p>Time</p>
+                                <label for="cars">Select your city</label>
+
+                                <select name="cars" id="car">
+                                    <option value=""></option>
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="mercedes">Mercedes</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="up_down">
+                        <i class="fa-solid fa-arrow-down-up-across-line"></i>
+                    </div>
+                    <div class="drop_off">
+                        <div class="first">
+                            <form action="/action_page.php">
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                                <label for="vehicle1"> Drop - off</label><br>
+                            </form>
+                        </div>
+                        <div class="second">
+                            <div class="locations">
+                                <p>locations</p>
+                                <label for="cars">Select your city</label>
+
+                                <select name="cars" id="car">
+                                    <option value=""></option>
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="mercedes">Mercedes</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                            </div>
+                            <div class="date">
+                                <p>Date</p>
+                                <label for="cars">Select your city</label>
+
+                                <select name="cars" id="car">
+                                    <option value=""></option>
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="mercedes">Mercedes</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                            </div>
+                            <div class="time">
+                                <p>Time</p>
+                                <label for="cars">Select your city</label>
+
+                                <select name="cars" id="car">
+                                    <option value=""></option>
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="mercedes">Mercedes</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="popular">
+            <div class="container">
+                <span>Popular Car</span>
+                <div class="popular_cars">
+                    <div class="one">
+                    <div class="name">
+                        <div>
+                            <p>Koenigsegg</p>
+                        <span>SUV</span></div>
+<div>                            <i class="fa-solid fa-heart" style="color: red;"></i></div>
+
+                    </div>
+                    <div class="image">
+                        <img src="./images/car.png" alt="">
+                    </div>
+                    <div class="icon">
+                        <i class="fa-solid fa-gas-pump"></i>
+                        <span>90L</span>
+                        <i class="fa-solid fa-clock-desk"></i>
+                        <span>Manuel</span>
+                        <i class="fa-solid fa-user-group"></i>
+                        <span>6 people</span>
+                    </div>
+                    <div class="price">
+                        <span>$99.00/day</span>
+                        <button type="button">Rent Now</button>
+                    </div>
+                </div>
+                <div class="one">
+                    <div class="name">
+                        <div>
+                            <p>Nissan GT - R</p>
+                            <span>SUV</span></div>
+<div>                           <i class="fa-regular fa-heart"></i></div>
+
+                    </div>
+                    <div class="image">
+                        <img src="./images/car (1).png" alt="">
+                    </div>
+                    <div class="icon">
+                        <i class="fa-solid fa-gas-pump"></i>
+                        <span>80LL</span>
+                        <i class="fa-solid fa-clock-desk"></i>
+                        <span>Manuel</span>
+                        <i class="fa-solid fa-user-group"></i>
+                        <span>6 people</span>
+                    </div>
+                    <div class="price">
+                        <span>$80.00/day</span>
+                        <button type="button">Rent Now</button>
+                    </div>
+                </div>
+                <div class="one">
+                    <div class="name">
+                        <div>
+                            <p>Rolls - Royce</p>
+                            <span>SUV</span></div>
+<div>                            <i class="fa-solid fa-heart" style="color: red;"></i></div>
+
+                    </div>
+                    <div class="image">
+                        <img src="./images/Car (2).png" alt="">
+                    </div>
+                    <div class="icon">
+                        <i class="fa-solid fa-gas-pump"></i>
+                        <span>70L</span>
+                        <i class="fa-solid fa-clock-desk"></i>
+                        <span>Manuel</span>
+                        <i class="fa-solid fa-user-group"></i>
+                        <span>6 people</span>
+                    </div>
+                    <div class="price">
+                        <span>$96.00/day</span>
+                        <button type="button">Rent Now</button>
+                    </div>
+                </div>
+                <div class="one">
+                    <div class="name">
+                        <div>
+                            <p>Nissan GT - R</p>
+                            <span>SUV</span></div>
+<div>                            <i class="fa-regular fa-heart"></i></div>
+
+                    </div>
+                    <div class="image">
+                        <img src="./images/car (1).png" alt="">
+                    </div>
+                    <div class="icon">
+                        <i class="fa-solid fa-gas-pump"></i>
+                        <span>80L</span>
+                        <i class="fa-solid fa-clock-desk"></i>
+                        <span>Manuel</span>
+                        <i class="fa-solid fa-user-group"></i>
+                        <span>6 people</span>
+                    </div>
+                    <div class="price">
+                        <span>$80.00/day</span>
+                        <button type="button">Rent Now</button>
+                    </div>
+                </div>
+            </div>
+            <span>Recommendation Cars</span>
+            <div class="popular_cars">
+                <div class="one">
+                <div class="name">
+                    <div>
+                        <p>All New Rush</p>
+                    <span>Sport</span></div>
+<div>                            <i class="fa-regular fa-heart""></i></div>
+
+                </div>
+                <div class="image">
+                    <img src="./images/Car4.png" alt="">
+                </div>
+                <div class="icon">
+                    <i class="fa-solid fa-gas-pump"></i>
+                    <span>70L</span>
+                    <i class="fa-solid fa-clock-desk"></i>
+                    <span>Manuel</span>
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>2 people</span>
+                </div>
+                <div class="price">
+                    <span>$72.00/day</span>
+                    <button type="button">Rent Now</button>
+                </div>
+            </div>
+            <div class="one">
+                <div class="name">
+                    <div>
+                        <p>CR-V</p>
+                        <span>Sport</span></div>
+<div>                           <i class="fa-solid fa-heart" style="color: red;"></i></div>
+
+                </div>
+                <div class="image">
+                    <img src="./images/Car2.png" alt="">
+                </div>
+                <div class="icon">
+                    <i class="fa-solid fa-gas-pump"></i>
+                    <span>80L</span>
+                    <i class="fa-solid fa-clock-desk"></i>
+                    <span>Manuel</span>
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>2 people</span>
+                </div>
+                <div class="price">
+                    <span>$80.00/day</span>
+                    <button type="button">Rent Now</button>
+                </div>
+            </div>
+            <div class="one">
+                <div class="name">
+                    <div>
+                        <p>All News Terios</p>
+                        <span>Sedan</span></div>
+<div>                            <i class="fa-regular fa-heart"></i></div>
+
+                </div>
+                <div class="image">
+                    <img src="./images/Car3.png" alt="">
+                </div>
+                <div class="icon">
+                    <i class="fa-solid fa-gas-pump"></i>
+                    <span>90L</span>
+                    <i class="fa-solid fa-clock-desk"></i>
+                    <span>Manuel</span>
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>2 people</span>
+                </div>
+                <div class="price">
+                    <span>$74.00/day</span>
+                    <button type="button">Rent Now</button>
+                </div>
+            </div>
+            <div class="one">
+                <div class="name">
+                    <div>
+                        <p>CR-V</p>
+                        <span>Sport</span></div>
+<div>                            <i class="fa-solid fa-heart" style="color: red;"></i></div>
+
+                </div>
+                <div class="image">
+                    <img src="./images/Car1.png" alt="">
+                </div>
+                <div class="icon">
+                    <i class="fa-solid fa-gas-pump"></i>
+                    <span>80L</span>
+                    <i class="fa-solid fa-clock-desk"></i>
+                    <span>Manuel</span>
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>2 people</span>
+                </div>
+                <div class="price">
+                    <span>$80.00/day</span>
+                    <button type="button">Rent Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="popular_cars">
+            <div class="one">
+            <div class="name">
+                <div>
+                    <p>MGZX E xclusice</p>
+                <span>Hatchback</span></div>
+<div>                            <i class="fa-solid fa-heart" style="color: red;"></i></div>
+
+            </div>
+            <div class="image">
+                <img src="./images/Car5.png" alt="">
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-gas-pump"></i>
+                <span>70L</span>
+                <i class="fa-solid fa-clock-desk"></i>
+                <span>Manuel</span>
+                <i class="fa-solid fa-user-group"></i>
+                <span>4 people</span>
+            </div>
+            <div class="price">
+                <span>$76.00/day</span>
+                <button type="button">Rent Now</button>
+            </div>
+        </div>
+        <div class="one">
+            <div class="name">
+                <div>
+                    <p>New MGZS</p>
+                    <span>SUV</span></div>
+<div>                           <i class="fa-regular fa-heart" ></i></div>
+
+            </div>
+            <div class="image">
+                <img src="./images/Car6.png" alt="">
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-gas-pump"></i>
+                <span>80L</span>
+                <i class="fa-solid fa-clock-desk"></i>
+                <span>Manuel</span>
+                <i class="fa-solid fa-user-group"></i>
+                <span>6 people</span>
+            </div>
+            <div class="price">
+                <span>$80.00/day</span>
+                <button type="button">Rent Now</button>
+            </div>
+        </div>
+        <div class="one">
+            <div class="name">
+                <div>
+                    <p>MGZX Excite</p>
+                    <span>Hatchbax</span></div>
+<div>                            <i class="fa-solid fa-heart" style="color: red;"></i></div>
+
+            </div>
+            <div class="image">
+                <img src="./images/Car5.png" alt="">
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-gas-pump"></i>
+                <span>90L</span>
+                <i class="fa-solid fa-clock-desk"></i>
+                <span>Manuel</span>
+                <i class="fa-solid fa-user-group"></i>
+                <span>6 people</span>
+            </div>
+            <div class="price">
+                <span>$74.00/day</span>
+                <button type="button">Rent Now</button>
+            </div>
+        </div>
+        <div class="one">
+            <div class="name">
+                <div>
+                    <p>New MGZX</p>
+                    <span>SUV</span></div>
+<div>                            <i class="fa-regular fa-heart" ></i></div>
+
+            </div>
+            <div class="image">
+                <img src="./images/Car6.png" alt="">
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-gas-pump"></i>
+                <span>80L</span>
+                <i class="fa-solid fa-clock-desk"></i>
+                <span>Manuel</span>
+                <i class="fa-solid fa-user-group"></i>
+                <span>6 people</span>
+            </div>
+            <div class="price">
+                <span>$80.00/day</span>
+                <button type="button">Rent Now</button>
+            </div>
+        </div>
+    </div>
+        </div>
+        </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="text">
+                    <div class="text_1">
+                        <h1>
+                            MORENT
+                        </h1>
+                        <p>Our vision is to provide convenience and help increase your sales business.</p>
+                    </div>
+                    <div class="text_2">
+<div class="about">
+    <h2>About</h2>
+    <ul>
+        <li><a href="">How it works</a></li>
+        <li><a href="">Featured</a></li>
+        <li><a href="">Partnership</a></li>
+        <li><a href="">Business Relation</a></li>
+    </ul>
+</div>
+<div class="community">
+    <h2>Community</h2>
+    <ul>
+        <li><a href="">Events</a></li>
+        <li><a href="">Blog</a></li>
+        <li><a href="">Podcats</a></li>
+        <li><a href="">Invite a friend</a></li>
+    </ul>
+</div>
+<div class="socials">
+    <h2>Socials</h2>
+    <ul>
+        <li><a href="">Discord</a></li>
+        <li><a href="">Instagram</a></li>
+        <li><a href="">Twitter</a></li>
+        <li><a href="">Facebook</a></li>
+    </ul>
+</div>
+                    </div>
+                </div>
+
+            </div>
+            
+
+            </div>
+        </footer>
+</body>
+<script src="./script.js"></script>
+</html>
