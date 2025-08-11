@@ -4,7 +4,16 @@
   box-sizing: border-box;
   font-family: "Plus Jakarta Sans", sans-serif;
 }
+main{
+ 
+  background-color: #F6F7F9;
 
+}
+.container_first{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
 a {
   text-decoration: none;
 }
@@ -19,23 +28,21 @@ li {
   margin: auto;
 }
 
-main {
-  background-color: #F6F7F9;
-}
+
 
 .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background: #fff;
-      border-bottom: 2px solid #007bff;
+      background: #d8d8ee;
+      border-bottom: 8px solid #5aa2ef;
     }
     .logo { font-size: 24px; font-weight: 700; color: #007bff; }
     .search-box {
       display: flex;
       align-items: center;
-      background: #f1f1f1;
+      background: #a5a5a5;
       padding: 0.5rem;
       border-radius: 2rem;
       width: 300px;
@@ -109,7 +116,7 @@ main {
       left: 0;
       width: 100%;
       padding: 1rem;
-      border-bottom: 2px solid #007bff;
+      border-bottom: 2px solid #a6c6e8;
       z-index: 998;
     }
     .mobile-menu.active {
@@ -209,6 +216,10 @@ section.big_img .container .cars .easy button {
 }
 
 @media only screen and (max-width: 600px) {
+  .container_first{
+    display: flex;
+    flex-direction: column;
+  }
   section.big_img .container .cars {
     width: 100%;
     display: flex;
@@ -308,6 +319,11 @@ section.up .container .select .up_down i {
 }
 
 @media only screen and (max-width: 600px) {
+
+  main{
+    display: flex;
+    flex-direction: column;
+  }
   section.up .container .select {
     width: 100%;
     display: flex;
@@ -473,89 +489,109 @@ footer .container .text .text_2 li {
 
 
  
-   
-    .container1 {
-      display: grid;
-      grid-template-columns: 1fr 3fr;
-      gap: 20px;
-      padding: 20px;
-    }
-    .filter-panel {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    .filter-panel h3 {
-      margin-top: 0;
-    }
-    .cars-section {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .car-card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 15px;
-      position: relative;
-    }
-    .car-card img {
-      width: 100%;
-    }
-    .heart {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-      font-size: 20px;
-      color: #ccc;
-    }
-    .heart.fav {
-      color: red;
-    }
-    .rent-btn {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px;
-      width: 100%;
-      border-radius: 5px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
-    .price-range {
-      width: 100%;
-    }
-    @media (max-width: 768px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
-    }
 
-    .filter-section {
-    width: 220px;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    border-right: 1px solid #ddd;
-  }
-  .filter-category {
-    margin-bottom: 20px;
-  }
-  .filter-category h4 {
-    font-size: 14px;
-    font-weight: bold;
-    color: #999;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-  }
-  .filter-category label {
-    font-size: 14px;
-    color: #333;
-  }
-  input[type="range"] {
-    width: 100%;
-  }
+
+
+
+
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  margin-right: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar h3 {
+  margin-top: 0;
+}
+
+.sidebar label {
+  display: block;
+  margin: 10px 0;
+}
+
+#priceRange {
+  width: 100%;
+}
+
+
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  padding: 10px;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+/* Login/Register Modal Styles */
+#loginModal {
+  max-width: 400px;
+  width: 90%;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  background-color: #fff;
+}
+
+#loginModal h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #3563E9;
+}
+
+#loginModal form {
+  display: flex;
+  flex-direction: column;
+}
+
+#loginModal input[type="text"],
+#loginModal input[type="password"] {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#loginModal button {
+  background-color: #3563E9;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#loginModal button:hover {
+  background-color: #254a9a;
+}
+
+#loginModal p {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+#loginModal a {
+  color: #3563E9;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#loginModal a:hover {
+  color: #254a9a;
+}

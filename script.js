@@ -1,115 +1,153 @@
- function search() {
-      const query = document.getElementById('searchInput').value;
-      if(query) {
-        alert('Searching for: ' + query);
-      } else {
-        alert('Please enter a search term.');
-      }
-    }
+// Mobile menu açıb-bağlamaq
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+}
 
-    function goToWishlist() {
-      window.location.href = 'wishlist.html'; // Make sure this page exists
-    }
+// Modal formunu göstərmək/gizlətmək və formlar arası keçid
+function toggleLogin() {
+  const modal = document.getElementById('loginModal');
+  modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+}
 
-    function toggleLogin() {
-      const modal = document.getElementById('loginModal');
-      modal.classList.toggle('active');
-    }
+function toggleForm(e) {
+  e.preventDefault();
+  const loginForm = document.getElementById('loginForm');
+  const registerForm = document.getElementById('registerForm');
+  const modalTitle = document.getElementById('modalTitle');
 
-    function closeLogin() {
-      document.getElementById('loginModal').classList.remove('active');
-    }
-
-     function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
-    }
-
-      const cars = [
-      { name: "Koenigsegg", price: 99, img: "./images/car (1).png", capacity: 2 },
-      { name: "CR - V", price: 80, img: "./images/Car1.png", capacity: 6 },
-      { name: "MG ZX Excite", price: 74, img: "./images/car.png", capacity: 4 },
-      { name: "Rolls-Royce", price: 96, img: "./images/Car (2).png", capacity: 2 },
-      { name: "MG ZX Exclusive", price: 76, img: "./images/Car2.png", capacity: 4 },
-      { name: "MG ZX Exclusive", price: 76, img: "./images/Car3.png", capacity: 4 },
-      { name: "MG ZX Exclusive", price: 76, img: "./images/Car4.png", capacity: 4 },
-      { name: "MG ZX Exclusive", price: 76, img: "./images/Car5.png", capacity: 4 },
-      { name: "MG ZX Exclusive", price: 76, img: "./images/Car6.png", capacity: 4 },
-       { name: "CR - V", price: 80, img: "./images/Car1.png", capacity: 6 },
-        { name: "CR - V", price: 80, img: "./images/Car2.png", capacity: 6 },
-    ];
-
-    const carList = document.getElementById("carList");
-    const maxPrice = document.getElementById("maxPrice");
-    const priceVal = document.getElementById("priceVal");
-    const capacitySelect = document.getElementById("capacitySelect");
-
-    function renderCars() {
-      const price = parseInt(maxPrice.value);
-      const capacity = capacitySelect.value;
-      carList.innerHTML = "";
-      const filtered = cars.filter(car => {
-        return (
-          car.price <= price &&
-          (capacity === "all" ||
-            (capacity === "8" && car.capacity >= 8) ||
-            car.capacity === parseInt(capacity))
-        );
-      });
-
-      filtered.forEach(car => {
-        const card = document.createElement("div");
-        card.className = "car-card";
-        card.innerHTML = `
-          <img src="${car.img}" alt="${car.name}" />
-          <h4>${car.name}</h4>
-          <p>Capacity: ${car.capacity} people</p>
-          <p><strong>$${car.price.toFixed(2)}</strong> / day</p>
-          <div class="heart">&#10084;</div>
-          <button class="rent-btn">Rent Now</button>
-        `;
-        carList.appendChild(card);
-      });
-    }
-
-    maxPrice.addEventListener("input", () => {
-      priceVal.textContent = maxPrice.value;
-      renderCars();
-    });
-
-    capacitySelect.addEventListener("change", renderCars);
-
-    document.addEventListener("click", function (e) {
-      if (e.target.classList.contains("heart")) {
-        e.target.classList.toggle("fav");
-      }
-    });
-
-    renderCars();
-
-      const priceRange = document.getElementById("priceRange");
-  const priceValue = document.getElementById("priceValue");
-
-  priceRange.addEventListener("input", () => {
-    priceValue.textContent = `$${parseFloat(priceRange.value).toFixed(2)}`;
-    filterCars();
-  });
-
-  const checkboxes = document.querySelectorAll(".filter-section input[type='checkbox']");
-  checkboxes.forEach(cb => cb.addEventListener("change", filterCars));
-
-  function filterCars() {
-    const selectedTypes = Array.from(document.querySelectorAll(".filter-category:nth-child(1) input:checked"))
-                              .map(cb => cb.value);
-    const selectedCapacities = Array.from(document.querySelectorAll(".filter-category:nth-child(2) input:checked"))
-                                   .map(cb => cb.value);
-    const maxPrice = parseFloat(priceRange.value);
-
-    console.log("Filter applied:", {
-      types: selectedTypes,
-      capacities: selectedCapacities,
-      maxPrice: maxPrice
-    });
-
-    // You can use this filter logic to filter car items on the page
+  if (loginForm.style.display === 'none') {
+    loginForm.style.display = 'block';
+    registerForm.style.display = 'none';
+    modalTitle.textContent = 'Login';
+  } else {
+    loginForm.style.display = 'none';
+    registerForm.style.display = 'block';
+    modalTitle.textContent = 'Register';
   }
+}
+
+// İstifadəçilər lokal storage-də saxlanacaq
+function getUsers() {
+  return JSON.parse(localStorage.getItem('users') || '{}');
+}
+
+function saveUsers(users) {
+  localStorage.setItem('users', JSON.stringify(users));
+}
+
+function setCurrentUser(username) {
+  localStorage.setItem('currentUser', username);
+}
+
+function getCurrentUser() {
+  return localStorage.getItem('currentUser');
+}
+
+function clearCurrentUser() {
+  localStorage.removeItem('currentUser');
+}
+
+// Login form submit
+function handleLogin(event) {
+  event.preventDefault();
+  const username = document.getElementById('loginUsername').value.trim();
+  const password = document.getElementById('loginPassword').value;
+
+  const users = getUsers();
+  if (users[username] && users[username].password === password) {
+    setCurrentUser(username);
+    alert(`Welcome back, ${username}!`);
+    toggleLogin();
+    updateUIAfterLogin();
+  } else {
+    alert('Invalid username or password!');
+  }
+}
+
+// Register form submit
+function handleRegister(event) {
+  event.preventDefault();
+  const username = document.getElementById('registerUsername').value.trim();
+  const password = document.getElementById('registerPassword').value;
+  const confirmPassword = document.getElementById('registerConfirmPassword').value;
+
+  if (password !== confirmPassword) {
+    alert('Passwords do not match!');
+    return;
+  }
+
+  const users = getUsers();
+  if (users[username]) {
+    alert('Username already exists!');
+    return;
+  }
+
+  users[username] = { password };
+  saveUsers(users);
+  alert('Registration successful! You can now login.');
+  toggleForm(new Event('click')); // toggle back to login form
+}
+
+// Sayfa yüklənəndə yoxlamaq - əgər login varsa UI yenilə
+function updateUIAfterLogin() {
+  const username = getCurrentUser();
+  if (username) {
+    // Məsələn, login modal düyməsini gizlət və ya istifadəçinin adını göstər
+    // Burada istəyə görə dəyişdirə bilərsən:
+    console.log(`User logged in: ${username}`);
+    // Modal varsa gizlət
+    const modal = document.getElementById('loginModal');
+    if(modal) modal.style.display = 'none';
+
+    // İstəsən burada login düyməsini gizlədə bilərsən, məsələn:
+    // document.querySelector('img[alt="settings"]').style.display = 'none';
+    
+    // Və ya istifadəçi adı göstərə bilərsən:
+    const iconsDiv = document.querySelector('.icons');
+    if(iconsDiv) {
+      if(!document.getElementById('welcomeUser')) {
+        const span = document.createElement('span');
+        span.id = 'welcomeUser';
+        span.textContent = `Hello, ${username}`;
+        span.style.marginLeft = '10px';
+        span.style.color = 'white';
+        iconsDiv.appendChild(span);
+      }
+    }
+  }
+}
+
+// Səhifə açılarkən avtomatik çağır
+document.addEventListener('DOMContentLoaded', () => {
+  updateUIAfterLogin();
+});
+
+
+
+//seArch
+function search() {
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+
+    if (!query) {
+        alert('Please enter a search term.');
+        return;
+    }
+
+   
+    const cars = document.querySelectorAll('.popular_cars .one');
+
+    cars.forEach(car => {
+        const nameElement = car.querySelector('.name p');
+        if (!nameElement) return; // Təhlükəsizlik üçün
+
+        const name = nameElement.textContent.toLowerCase();
+
+        if (name.includes(query)) {
+            car.style.display = '';
+        } else {
+            car.style.display = 'none';
+        }
+    });
+}
+
