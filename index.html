@@ -20,12 +20,16 @@
        <div class="navbar">
     <div class="logo">MORENT</div>
     
-     <div class="search-box">
+
+
+        <div class="search-box">
     <button onclick="search()"></button>
     <input type="text" id="searchInput" placeholder="Search something here">
     <button>🔍</button>
   </div>
-    
+
+
+
     <div class="icons">
       <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="wishlist" onclick="goToWishlist()">
       <div class="notification-dot">
@@ -33,15 +37,10 @@
       </div>
       <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="settings" onclick="toggleLogin()">
      
-      <a href="./detail.html" target="_blank">Detail</a>
+      <a href="./index.html" target="_blank">Home</a>
     </div>
   </div>
-    <div class="burger" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div id="mobileMenu" class="mobile-menu">
+  <div id="mobileMenu" class="mobile-menu">
   <a href="./index.html">Home</a>
   <a href="./detail.html">Detail</a>
   <div class="icons">
@@ -55,13 +54,30 @@
     </div>
   
 </div>
+
+    <div class="burger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   <div id="loginModal" class="modal">
-    <h3>Login / Register</h3>
-    <input type="text" placeholder="Username">
-    <input type="password" placeholder="Password">
-    <button onclick="closeLogin()">Login</button>
+    <h3 id="modalTitle">Login</h3>
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <input type="text" id="loginUsername" placeholder="Username" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a href="#" onclick="toggleForm(event)">Register here</a></p>
+    </form>
+    <form id="registerForm" onsubmit="handleRegister(event)" style="display:none;">
+      <input type="text" id="registerUsername" placeholder="Username" required>
+      <input type="password" id="registerPassword" placeholder="Password" required>
+      <input type="password" id="registerConfirmPassword" placeholder="Confirm Password" required>
+      <button type="submit">Register</button>
+      <p>Already have an account? <a href="#" onclick="toggleForm(event)">Login here</a></p>
+    </form>
   </div>
     </header>
+    
     <main>
         <section class="big_img">
             <div class="container">

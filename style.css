@@ -532,3 +532,66 @@ footer .container .text .text_2 li {
 .mobile-menu.active {
   display: flex;
 }
+
+/* Login/Register Modal Styles */
+#loginModal {
+  max-width: 400px;
+  width: 90%;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  background-color: #fff;
+}
+
+#loginModal h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #3563E9;
+}
+
+#loginModal form {
+  display: flex;
+  flex-direction: column;
+}
+
+#loginModal input[type="text"],
+#loginModal input[type="password"] {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#loginModal button {
+  background-color: #3563E9;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#loginModal button:hover {
+  background-color: #254a9a;
+}
+
+#loginModal p {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+#loginModal a {
+  color: #3563E9;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#loginModal a:hover {
+  color: #254a9a;
+}
