@@ -1,10 +1,10 @@
-// Mobile menu açıb-bağlamaq
+// Mobile menu 
 function toggleMenu() {
   const menu = document.getElementById('mobileMenu');
   menu.classList.toggle('open');
 }
 
-// Modal formunu göstərmək/gizlətmək və formlar arası keçid
+// Modal form
 function toggleLogin() {
   const modal = document.getElementById('loginModal');
   modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
@@ -27,7 +27,7 @@ function toggleForm(e) {
   }
 }
 
-// İstifadəçilər lokal storage-də saxlanacaq
+// LocalStorage -user
 function getUsers() {
   return JSON.parse(localStorage.getItem('users') || '{}');
 }
@@ -89,21 +89,17 @@ function handleRegister(event) {
   toggleForm(new Event('click')); // toggle back to login form
 }
 
-// Sayfa yüklənəndə yoxlamaq - əgər login varsa UI yenilə
+//update login
 function updateUIAfterLogin() {
   const username = getCurrentUser();
   if (username) {
-    // Məsələn, login modal düyməsini gizlət və ya istifadəçinin adını göstər
-    // Burada istəyə görə dəyişdirə bilərsən:
+    
     console.log(`User logged in: ${username}`);
-    // Modal varsa gizlət
+   
     const modal = document.getElementById('loginModal');
     if(modal) modal.style.display = 'none';
 
-    // İstəsən burada login düyməsini gizlədə bilərsən, məsələn:
-    // document.querySelector('img[alt="settings"]').style.display = 'none';
-    
-    // Və ya istifadəçi adı göstərə bilərsən:
+   
     const iconsDiv = document.querySelector('.icons');
     if(iconsDiv) {
       if(!document.getElementById('welcomeUser')) {
@@ -118,7 +114,7 @@ function updateUIAfterLogin() {
   }
 }
 
-// Səhifə açılarkən avtomatik çağır
+
 document.addEventListener('DOMContentLoaded', () => {
   updateUIAfterLogin();
 });
