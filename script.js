@@ -147,3 +147,47 @@ function search() {
     });
 }
 
+
+// 1. Bütün ürək ikonlarını seç
+const heartIcons = document.querySelectorAll('.fa-heart');
+
+// 2. Wishlist ikonunu seç
+const wishlistIcon = document.querySelector('img[alt="wishlist"]');
+
+// 3. LocalStorage-də wishlist üçün array yarat
+let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+// 4. Ürək ikonlarına klik event əlavə et
+heartIcons.forEach(icon => {
+  icon.addEventListener('click', () => {
+    const carCard = icon.closest('.one'); // klik olunan avtomobil kartı
+    const carName = carCard.querySelector('.name p').textContent;
+    const carImage = carCard.querySelector('.image img').src;
+
+    const carData = { name: carName, image: carImage };
+
+    // Toggle rəng və localStorage əməliyyatı
+    if (icon.classList.contains('active')) {
+      icon.classList.remove('active');
+      icon.style.color = '';
+      // wishlist-dən sil
+      wishlist = wishlist.filter(item => item.name !== carName);
+    } else {
+      icon.classList.add('active');
+      icon.style.color = 'red';
+      // wishlist-ə əlavə et
+      if (!wishlist.some(item => item.name === carName)) {
+        wishlist.push(carData);
+      }
+    }
+
+    // LocalStorage-i güncəllə
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+  });
+});
+
+// 5. Wishlist ikonuna klik
+wishlistIcon.addEventListener('click', () => {
+  window.location.href = './wishlist.html';
+});
+
