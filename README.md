@@ -40,6 +40,14 @@ Launched as a group project, **Rent-a-Car** is a fully responsive, user-friendly
 
 The platform includes multiple interactive pages, from viewing car details to managing a personal wishlist.
 
+## 🎥 Project Demo Video
+
+Here is a short demo video of our **Rent a Car Project** showing the main features and functionality.  
+Click the link below to watch:
+
+[▶️ Watch the Project Demo Video](https://youtu.be/nFloporpuIg)
+
+
 ---
 
 ## 🖼️ Preview
